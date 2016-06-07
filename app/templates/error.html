@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="p404">
+
+                <div class="face" id="face">
+                    <span class="eyes">:</span>
+
+                    <span class="mouth">(</span>
+                </div>
+
+                <p class="message">
+                    Oops, there is nothing in
+                    <span id='local'>
+                        /itsyourbadimflawless
+                    </span>
+                    <br><br>
+                    Want to go to the
+                    <a href="#home">
+                        homepage?
+                    </a>
+
+                </p>
+                <div class="search-box">
+                    <form action="">
+                        <input type="text" placeholder="You can also search for the needle!">
+                        <i class="fa fa-search"></i>
+                    </form>
+                </div>
+
+            <footer>{{ erro }}</footer>
+        </div>
+        <style media="screen">
+            @import url(//fonts.googleapis.com/css?family=Lato:700);
+
+            body {
+                color: #999;
+                text-align:center;
+                background-color: rgb(51, 51, 51);
+                font-family:'Lato', sans-serif;
+            }
+
+            .p404 {
+                overflow: hidden;
+            }
+
+            @-webkit-keyframes eye-blink {
+                95% { color: #bbb; text-shadow: 3px 0 0 #fafafa; }
+                100% { color: #fafafa; text-shadow: 3px 0 0 #bbb; }
+            }
+            @-moz-keyframes eye-blink {
+                95% { color: #bbb; text-shadow: 3px 0 0 #fafafa; }
+                100% { color: #fafafa; text-shadow: 3px 0 0 #bbb; }
+            }
+            @-o-keyframes eye-blink {
+                95% { color: #bbb; text-shadow: 3px 0 0 #fafafa; }
+                100% { color: #fafafa; text-shadow: 3px 0 0 #bbb; }
+            }
+            @keyframes eye-blink {
+                95% { color: #bbb; text-shadow: 3px 0 0 #fafafa; }
+                100% { color: #fafafa; text-shadow: 3px 0 0 #bbb; }
+            }
+
+            .face {
+                color: #bbb;
+                line-height: 0.8;
+                font-size: 300px;
+                margin-bottom: 120px;
+            }
+            .face .eyes {
+                text-shadow: 3px 0 0 #fafafa;
+                -webkit-animation: eye-blink 3s infinite;
+                -moz-animation: eye-blink 3s infinite;
+                -o-animation: eye-blink 3s infinite;
+                animation: eye-blink 3s infinite;
+            }
+            .face-smile .eyes {
+                color: #fafafa;
+                text-shadow: -5px 0 0 #bbb;
+                -webkit-animation: none;
+                -moz-animation: none;
+                -o-animation: none;
+                animation: none;
+            }
+            .face-smile .mouth {
+                display: inline-block;
+                -webkit-transition: all .7s ease;
+                -webkit-transform: rotateY(180deg);
+                -moz-transition: all .7s ease;
+                -moz-transform: rotateY(180deg);
+                -o-transition: all .7s ease;
+                -o-transform: rotate(180deg);
+                transition: all .7s ease;
+                transform: rotateY(180deg);
+            }
+            .message {
+                font-size: 22px;
+            }
+            .message span {
+                color: rgba(255, 85, 0, 0.72);
+            }
+            .message a {
+                color: #FFF;
+                padding-bottom: 2px;
+                text-decoration: none;
+                padding: 10px 10px 5px 5px;
+                position: relative;
+            }
+            .message a:link, .message a:visited {
+                border-bottom: 2px solid rgba(86, 85, 85, 0.49);;
+
+            }
+            .message a:hover, .message a:active {
+                border-bottom: 2px solid #ff5500;
+
+            }
+
+            .search-box {
+                margin: 40px 0;
+            }
+            .search-box form {
+                display: inline;
+                position: relative;
+            }
+            .search-box input {
+                width: 320px;
+                padding: 10px;
+                border: 0 none;
+                font-size: 15px;
+                color: #666;
+                background-color: #eee;
+                -webkit-border-radius: 2px 2px 2px 2px;
+                -moz-border-radius: 2px 2px 2px 2px;
+                -khtml-border-radius: 2px 2px 2px 2px;
+                border-radius: 2px 2px 2px 2px;
+            }
+            .search-box i {
+                cursor: pointer;
+                position: absolute;
+                right: 5px;
+                top: -2px;
+                padding: 0 10px;
+                font-size: 1.5em;
+                color: #ccc;
+                background-color: #eee;
+                border-left: 1px solid #ddd;
+            }
+            .search-box i:hover,
+            .search-box i:active {
+                color: #999;
+            }
+        </style>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            var localDomain = document.domain;
+            var localPath = window.location.href;
+
+
+            function vCenter() {
+
+                $('.p404').css({
+                    'position': 'relative',
+                    'top': ($(document).height() - $('.p404').height()) / 2,
+                });
+            }
+            function rotating(degree) {
+                $('#face').animate({  borderSpacing: degree }, {
+                    step: function(now,fx) {
+                        $(this).css('-webkit-transform','rotate('+now+'deg)');
+                        $(this).css('-moz-transform','rotate('+now+'deg)');
+                        $(this).css('transform','rotate('+now+'deg)');
+                    }, duration:'slow'
+                },'linear');
+            }
+
+            function toggleSmile(e) {
+                var face = $(this).parent().siblings('.face');
+
+                if(face.hasClass('face-smile') && $(this).is('form')
+                    && e.type === 'focusin') {
+
+                        face.data('trigger', $(this));
+
+                }
+                else if(!face.hasClass('face-smile') || (face.hasClass('face-smile')
+                    && $(this).is(face.data('trigger')))) {
+
+                        face.toggleClass('face-smile').data('trigger', $(this));
+
+                }
+
+            }
+
+            document.getElementById("local").innerHTML = localPath;
+
+
+
+            vCenter();
+
+            $('#face').mouseover(function() {
+                rotating(90);
+            });
+
+
+            $('.message a').on('mouseenter mouseleave', toggleSmile);
+            $('.p404').on('focusin focusout', '.search-box form', toggleSmile);
+            $('.search-box form').submit(false);
+
+
+
+            $("a[href$='#home']").click(function() {
+                win = window.location.href = 'http://' + localDomain +':5000';
+
+                //win = window.open('http://' + localDomain +':5000', 'http://' + localDomain +':5000/home');
+                //win.location.reload();
+                //win.focus();
+
+            });
+
+            window.onresize = vCenter;
+        </script>
+    </body>
+</html>

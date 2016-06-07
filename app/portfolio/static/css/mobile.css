@@ -1,0 +1,86 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { ... }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { ... }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { ... }
+
+
+/*@media (max-width: @screen-xs-max) { ... }
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
+@media (min-width: @screen-lg-min) { ... }*/
+
+
+ @media only screen and (max-width: 1280px){
+     section.well {
+       width: 100%;
+       margin: auto;
+     }
+
+     .intro-img {
+         margin-top: 35vh;
+         }
+
+     div.jumbotron {
+       width: 100%;
+       margin: auto;
+     }
+}
+
+@media only screen and (max-width: 435px){
+
+    .intro-bg {
+
+    }
+
+    .intro-img {
+        margin-top: 35vh;
+        }
+    .intro-myname {
+
+    }
+
+    .intro-text {
+
+    }
+
+    div.jumbo-effects {
+        width: 90vw;
+    }
+
+    h2.titulo {
+        margin-left: 2%;
+    }
+    .avatar {
+        width: 85pt;
+        box-shadow: 0px 5px 8px #888888;
+    }
+
+    .avatar-right {
+      float: right;
+    }
+    .sep-social-midia {
+        /* Ajuste entre formulario contato e social media */
+        padding: 25pt;
+    }
+    section.well {
+      width: 100%;
+      margin: auto;
+    }
+
+    div.jumbotron {
+      width: 100%;
+      margin: auto;
+    }
+    .form-label-space {
+        margin: 2.5%;
+    }
+
+
+}

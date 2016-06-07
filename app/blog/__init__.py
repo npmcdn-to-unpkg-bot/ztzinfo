@@ -3,7 +3,7 @@ from flask import Blueprint
 blog = Blueprint(
     'blog',
     __name__,
-    static_folder='static'
+    static_folder='static',
     )
 
 
