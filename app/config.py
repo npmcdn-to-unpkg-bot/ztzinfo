@@ -11,8 +11,8 @@ class BaseConfig:
     MAIL_PORT = 465
     MAIL_USE_SSL = True
     MAIL_USE_TSL = False
-    MAIL_USERNAME = os.environ['APP_MAIL_USERNAME']
-    MAIL_PASSWORD = os.environ['APP_MAIL_PASSWORD']
+    MAIL_USERNAME = os.environ['MAIL_USERNAME']
+    MAIL_PASSWORD = os.environ['MAIL_PASSWORD']
     #SERVER_NAME = 'andre.herokuapp.com'
 
 

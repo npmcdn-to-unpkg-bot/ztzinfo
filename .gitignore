@@ -2,4 +2,7 @@ venv/
 layout-html/
 test.py
 envs.sh
-app/__pycache__/config.cpython-35.pyc
+app/__pycache__/
+app/admin/__pycache__/
+app/blog/__pycache__/
+app/portfolio/__pycache__/
