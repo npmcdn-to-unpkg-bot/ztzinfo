@@ -1,5 +1,4 @@
 from flask import Blueprint
-from flask import send_file
 
 blog = Blueprint(
     'blog',
