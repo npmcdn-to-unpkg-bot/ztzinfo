@@ -1,14 +1,22 @@
-import os
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, sessionmaker
-from sqlalchemy import create_engine
-from passlib.apps import custom_app_context as pwd_context
+"""Model."""
+
 from itsdangerous import(TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired)
+from passlib.apps import custom_app_context as pwd_context
+import random
+from sqlalchemy import Column, Integer, String
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
+from sqlalchemy.orm import sessionmaker
+import string
 
 Base = declarative_base()
 
-secret_key = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(32))
+
+secret_key = ''.join(
+    random.choice(string.ascii_uppercase + string.digits) for x in range(32)
+    )
+
 
 class User(Base):
 
@@ -34,13 +42,14 @@ class User(Base):
         try:
             data = s.loads(token)
         except SignatureExpired:
-            #Valid Token, but expired
+            # Valid Token, but expired
             return None
         except BadSignature:
-            #Invalid Token
+            # Invalid Token
             return None
         user_id = data['id']
         return user_id
+
 
 class Post(Base):
 
@@ -50,6 +59,7 @@ class Post(Base):
     title = Column(String)
     body = Column(String)
     date = Column(String)
+
     @property
     def serialize(self):
         """Return object data in easily serializeable format"""

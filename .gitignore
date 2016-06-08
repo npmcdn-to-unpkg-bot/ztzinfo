@@ -4,3 +4,4 @@ test.py
 envs.sh
 *.py[cod]
 __pycache__/
+app/admin/__pycache__/

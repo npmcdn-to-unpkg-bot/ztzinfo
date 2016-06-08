@@ -12,4 +12,4 @@ admin = Blueprint(
 
 @admin.route('/')
 def index():
-    return admin_app.send_static_file('index.html')
+    return admin.send_static_file('index.html')
