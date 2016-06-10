@@ -69,6 +69,8 @@ class Post(Base):
             'date': self.date
             }
 
+from .config import DevelopmentConfig
 
-engine = create_engine('sqlite:///ztzinfo.db')
+uri = DevelopmentConfig.SQLALCHEMY_DATABASE_URI
+engine = create_engine(uri)
 Base.metadata.create_all(engine)

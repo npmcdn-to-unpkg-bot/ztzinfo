@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"> -->
+        <title>DashBoard</title>
+
+        <link rel="icone" href="static/images/icone.ico">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="static/libs/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="static/libs/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    </head>
+    <body class="container-fluid" data-ng-app="Admin">
+        <main class="row">
+            <header class="col-xs-12 col-md-2 column-left">
+                <h3>Coluna Esquerda</h3>
+
+                <div class="sidebar-nav">
+                    <div class="well" > <!-- style="width:300px; padding: 8px 0;" -->
+                        <ul class="nav nav-list">
+                          <li class="nav-header">Main</li>
+                          <li class="active"><a href="index"><i class="icon-home"></i> Dashboard</a></li>
+                          <li><a href="#"><i class="icon-edit"></i> Add Blog Post</a></li>
+                          <li><a href="#"><i class="icon-calendar"></i> Calendar</a></li>
+                          <li><a href="#"><i class="icon-user"></i> Members</a></li>
+                          <li><a href="#"><i class="icon-comment"></i> Comments</a></li>
+                          <li><a href="#"><i class="icon-picture"></i> Galleria</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <section class="col-xs-12 col-md-9 col-md-offset-1 column-right" data-ng-view>
+
+
+            </section>
+        </main>
+    <script src="static/libs/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="static/libs/angular-1.5.5/angular.min.js"></script>
+    <script src="static/libs/angular-1.5.5/angular-route.min.js"></script>
+    <script src="static/js/app.js" ></script>
+    <script src="static/js/controllers/DashboardController.js"></script>
+    <script src="static/js/controllers/CreatePostController.js"></script>
+    </body>
+</html>
