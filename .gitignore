@@ -6,3 +6,4 @@ envs.sh
 __pycache__/
 app/admin/__pycache__/
 createdb.py
+app/ztzinfo.db
