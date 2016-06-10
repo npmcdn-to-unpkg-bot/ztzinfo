@@ -7,3 +7,4 @@ __pycache__/
 app/admin/__pycache__/
 createdb.py
 app/ztzinfo.db
+*.db
