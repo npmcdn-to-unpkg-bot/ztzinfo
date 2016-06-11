@@ -21,28 +21,7 @@ app.controller('LoginCtrl', function($scope, $location, $http) {
 
 
     function DoAuth(data) {
-        var req = {
-            method: 'GET',
-            url: 'http://127.0.0.1:5000/admin/token',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: {
-                'username': 'ztz',
-                'password': 'ztz'
-            }
-        }
-        // $http({
-        //     method:'GET',
-        //     url:'http://127.0.0.1:5000/admin/token',
-        //     headers:
-        //         {'Content-Type': 'application/json;charset=utf-8',
-        //         'WWW-Authenticate': 'Basic'
-        //         },
-        //         data: {username:'ztz', password:'ztz'}
-        //     })
-        // $http.get('http://127.0.0.1:5000/admin/token', data)
-        // $http(req)
+
         var uri = '/admin/token';
 
         if (window.location.port !== "") {
@@ -52,7 +31,8 @@ app.controller('LoginCtrl', function($scope, $location, $http) {
         else {
             var url = window.location.port + uri;
         }
-        $http.get(url, {"username": $scope.username, "password":$scope.password})
+
+        $http.get(url, data)
            .success(function (result) {
                $location.path('/dashboard');
                console.log(result);
