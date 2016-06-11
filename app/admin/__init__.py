@@ -26,14 +26,10 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 admin = Blueprint(
-    'admin',
-    __name__,
-    static_folder='static',
-    template_folder='templates'
+    'admin', __name__, static_folder='static'
     )
 
 
-#ADD @auth.verify_password here
 @auth.verify_password
 def verify_password(username_or_token, password):
     #Try to see if it's a token first
@@ -51,6 +47,7 @@ def verify_password(username_or_token, password):
 @admin.route('/token')
 @auth.login_required
 def get_auth_token():
+    print(request.headers)
     token = g.user.generate_auth_token()
     return jsonify({'token': token.decode('utf-8')})
 

@@ -7,6 +7,7 @@ var app = angular.module('dash', [
     .config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.when('/dashboard', '/dashboard/home');
+    // $authProvider.loginUrl = '/api/login';
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider
@@ -19,7 +20,11 @@ var app = angular.module('dash', [
             url: '/login',
             parent: 'base',
             templateUrl: 'static/views/login.html',
-            controller: 'LoginCtrl'
+            controller: 'LoginCtrl',
+
+            // resolve: {
+            //     skipIfLoggedIn: skipIfLoggedIn
+            // }
         })
         .state('dashboard', {
             url: '/dashboard',
