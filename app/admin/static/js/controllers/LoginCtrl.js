@@ -43,7 +43,16 @@ app.controller('LoginCtrl', function($scope, $location, $http) {
         //     })
         // $http.get('http://127.0.0.1:5000/admin/token', data)
         // $http(req)
-        $http.get('http://127.0.0.1:5000/admin/token', {"username": $scope.username, "password":$scope.password})
+        var uri = '/admin/token';
+
+        if (window.location.port !== "") {
+            var port = ':' + window.location.port;
+            var url = window.location.port + port + uri;
+        }
+        else {
+            var url = window.location.port + uri;
+        }
+        $http.get(url, {"username": $scope.username, "password":$scope.password})
            .success(function (result) {
                $location.path('/dashboard');
                console.log(result);
