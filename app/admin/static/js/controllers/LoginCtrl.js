@@ -10,16 +10,15 @@ app.controller('LoginCtrl', function($scope, $location, $http) {
         var password = $scope.password;
 
 
-        var url = 'http://127.0.0.1:5000/admin/token';
+        var url =  window.location.host + '/admin/token';
 
         $http({
             url: url,
             method: "GET",
             data: {username: username, password: password},
-            withCredentials: true,
             headers: {
-                // 'Content-Type': 'application/json; charset=utf-8',
-                // 'Authorization': 'Basic ' + username+':'+password,
+                'Content-Type': 'application/json; charset=utf-8',
+                'Authorization': 'Basic ' + username+':'+password,
                 }
             })
            .success(function (result) {
