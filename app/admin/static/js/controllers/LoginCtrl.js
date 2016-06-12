@@ -1,44 +1,36 @@
 'use strict';
 
 app.controller('LoginCtrl', function($scope, $location, $http) {
-
     $scope.token = '';
-    console.log($scope.token);
+
+    console.log('token: ' + $scope.token);
 
     $scope.submit = function() {
-
-        console.log($scope.username);
-        console.log($scope.password);
-        var data = {
-            'username': $scope.username,
-            'password': $scope.password
-        };
-
-        DoAuth(data);
-
-        return false;
-    }
+        var username = $scope.username;
+        var password = $scope.password;
 
 
-    function DoAuth(data) {
+        var url = 'http://127.0.0.1:5000/admin/token';
 
-        var uri = '/admin/token';
-
-        if (window.location.port !== "") {
-            var port = ':' + window.location.port;
-            var url = window.location.port + port + uri;
-        }
-        else {
-            var url = window.location.port + uri;
-        }
-
-        $http.get(url, data)
+        $http({
+            url: url,
+            method: "GET",
+            data: {username: username, password: password},
+            withCredentials: true,
+            headers: {
+                // 'Content-Type': 'application/json; charset=utf-8',
+                // 'Authorization': 'Basic ' + username+':'+password,
+                }
+            })
            .success(function (result) {
                $location.path('/dashboard');
                console.log(result);
                $scope.token = result.access_token;
            });
+
+        return false;
     }
-    console.log($scope.token);
+
+    console.log('token: ' + $scope.token);
 
 });
