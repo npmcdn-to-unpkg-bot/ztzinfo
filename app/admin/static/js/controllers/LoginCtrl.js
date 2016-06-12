@@ -10,8 +10,8 @@ app.controller('LoginCtrl', function($scope, $location, $http) {
         var password = $scope.password;
 
 
-        var url =  window.location.host + '/admin/token';
-
+        var url =  'http://' + window.location.host + '/admin/token';
+        console.log(url);
         $http({
             url: url,
             method: "GET",
