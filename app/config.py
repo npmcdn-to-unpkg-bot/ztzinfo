@@ -13,7 +13,6 @@ class BaseConfig:
     MAIL_USE_TSL = False
     MAIL_USERNAME = os.environ['MAIL_USERNAME']
     MAIL_PASSWORD = os.environ['MAIL_PASSWORD']
-    #SERVER_NAME = 'ztzinfo.herokuapp.com'
 
 
 class DevelopmentConfig(BaseConfig):
@@ -23,4 +22,5 @@ class DevelopmentConfig(BaseConfig):
 
 
 class ProductionConfig(BaseConfig):
+    SERVER_NAME = 'ztzinfo.herokuapp.com'
     DEBUG = False
