@@ -1,6 +1,9 @@
 """Model."""
 
-from itsdangerous import(TimedJSONWebSignatureSerializer as Serializer, BadSignature, SignatureExpired)
+from itsdangerous import BadSignature
+from itsdangerous import SignatureExpired
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+
 from passlib.apps import custom_app_context as pwd_context
 import random
 from sqlalchemy import Column, Integer, String

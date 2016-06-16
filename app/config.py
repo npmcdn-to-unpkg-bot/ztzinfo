@@ -22,5 +22,5 @@ class DevelopmentConfig(BaseConfig):
 
 
 class ProductionConfig(BaseConfig):
-    SERVER_NAME = 'ztzinfo.herokuapp.com'
+    #SERVER_NAME = 'ztzinfo.herokuapp.com'
     DEBUG = False
