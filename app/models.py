@@ -68,9 +68,3 @@ class Post(Base):
             'body': self.body,
             'date': self.date
             }
-
-from .config import DevelopmentConfig
-
-uri = DevelopmentConfig.SQLALCHEMY_DATABASE_URI
-engine = create_engine(uri)
-Base.metadata.create_all(engine)

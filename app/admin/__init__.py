@@ -17,24 +17,18 @@ from ..models import User, Base
 
 auth = HTTPBasicAuth()
 
-uri = DevelopmentConfig.SQLALCHEMY_DATABASE_URI
-engine = create_engine(uri)
-
-Base.metadata.bind = engine
-DBSession = sessionmaker(bind=engine)
-session = DBSession()
+from ..dbconn import session
 
 admin = Blueprint(
     'admin', __name__, static_folder='static'
     )
 
-@admin.after_request
-def after_request(response):
-    # response.headers.remove('WWW-Authenticate')
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-    return response
+# @admin.after_request
+# def after_request(response):
+#     response.headers.add('Access-Control-Allow-Origin', '*')
+#     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+#     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+#     return response
 
 
 @auth.verify_password
@@ -51,10 +45,9 @@ def verify_password(username_or_token, password):
     return True
 
 
-@admin.route('/token')
+@admin.route('/token',)
 @auth.login_required
 def get_auth_token():
-    print(request.headers)
     token = g.user.generate_auth_token()
     return jsonify({'token': token.decode('utf-8')})
 
@@ -72,6 +65,7 @@ def new_post():
     return 'New Post'
 
 @admin.route('/posts')
+@auth.login_required
 def new_posts():
     print(dir(request))
     print(request.authorization)

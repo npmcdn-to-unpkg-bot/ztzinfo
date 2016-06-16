@@ -2,12 +2,11 @@
 
 var app = angular.module('dash', [
     'ui.router',
-    'ngAnimate'
+    'ngAnimate',
     ])
     .config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.when('/dashboard', '/dashboard/home');
-    // $authProvider.loginUrl = '/api/login';
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider
