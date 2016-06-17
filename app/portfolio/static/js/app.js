@@ -1,6 +1,11 @@
 var main = function () {
     "use strict";
 
+    $('#myCarousel').on("slide.bs.carousel", function(){
+         $(".carousel-control",this).css('top',($(".active img",this).height()*0.46)+'px');
+         $(this).off("slide.bs.carousel");
+    });
+
     var dataTranslate = function (usingLang) {
         i18next.init({
             lng: usingLang,

@@ -2,4 +2,4 @@
 
 personal web page
 
-http://ztzinfo.herokuapp.com
+http://andreztz.herokuapp.com/
