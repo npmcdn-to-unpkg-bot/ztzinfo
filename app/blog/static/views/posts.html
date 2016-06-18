@@ -1,18 +1,19 @@
 <h1 class="content-subhead">Últimas Postagens</h1>
 <article class="" data-ng-repeat="post in posts | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-    <h2 class="text-justify">{{ post.title }}</h2>
+    <h2 class="text-justify">{{ post.title | splitText:40 }}</h2>
     <p class="text-justify">
         {{ post.body }}
     </p>
-    <img src="{{ post.image }}" alt="" class="img-thumbnail img-responsive"/>
+    <!--<img src="{{ post.image }}" alt="" class="img-thumbnail img-responsive"/>-->
+    <!--<p>{{post.data | date:'dd/MM/yyyy HH:mm'}}</p>-->
     <br>
     <hr class="">
 </article>
 <div class="col-xs-12 col-md-12">
     <div class="text-center">
         <ul class="pagination">
-            <li><a ng-click="pagination.prevPage()">Antigo</a></li>
-            <li><a ng-click="pagination.nextPage()">Next</a></li>
+            <li><a ng-click="pagination.prevPage()">Novos</a></li>
+            <li><a ng-click="pagination.nextPage()">Antigos</a></li>
         </ul>
         <!--<ul class="pagination">-->
             <!--<li><a href="" ng-click="pagination.prevPage()">&laquo;</a></li>-->

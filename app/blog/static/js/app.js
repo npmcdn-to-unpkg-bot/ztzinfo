@@ -1,7 +1,7 @@
-var app = angular.module('Blog', ['ngRoute', 'simplePagination']);
+angular.module('Blog', ['ngRoute', 'simplePagination']);
 
 
-app.config(function ($routeProvider){
+angular.module('Blog').config(function ($routeProvider){
     $routeProvider
     .when('/', {
         controller: 'BlogCtrl',
@@ -12,7 +12,7 @@ app.config(function ($routeProvider){
         templateUrl: 'static/views/sobre.html'
     })
     .when('/arquivo', {
-        controller: 'ArquivoController',
+        controller: 'ArquivoCtrl',
         templateUrl: 'static/views/arquivo.html'
     })
     .otherwise({
@@ -21,6 +21,6 @@ app.config(function ($routeProvider){
 
 });
 
-app.value('config', {
+angular.module('Blog').value('config', {
    baseUrl: 'http://jsonplaceholder.typicode.com'
 });

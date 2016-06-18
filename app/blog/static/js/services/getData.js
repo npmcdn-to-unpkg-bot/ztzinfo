@@ -1,4 +1,4 @@
-app.factory('getPosts', function ($http, config) {
+angular.module('Blog').factory('getPosts', function ($http, config) {
     var _getPosts = function () {
         return $http.get(config.baseUrl + '/posts');
     }

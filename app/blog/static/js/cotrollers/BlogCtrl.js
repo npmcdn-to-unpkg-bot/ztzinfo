@@ -1,4 +1,4 @@
-app.controller('BlogCtrl', function ($scope, getPosts, Pagination) {
+angular.module('Blog').controller('BlogCtrl', function ($scope, getPosts, Pagination) {
 
     $scope.pagination = Pagination.getNew();
 

@@ -1,16 +1,18 @@
 <h1 class="content-subhead">Arquivo</h1>
 <div class="well-lg">
 
-    <p class="text-left"><a href="/#/">&larr; Início</a></p>
+    <p class="text-left"><a href="/blog/#/">&larr; Início</a></p>
 </div>
-<div class="jumbotron">
-    <h3>teste</h3>
+<div class="well-sm">
+    <div data-ng-repeat="post in posts">
+        <h3><a href="">{{ post.title }}</a></h3>
+    </div>
 </div>
 <div class="col-xs-12 col-md-12">
     <div class="text-center">
         <ul class="pagination">
-            <li><a href="?p=0" data-original-title="" title="">1</a></li>
-            <li><a href="?p=1" data-original-title="" title="">2</a></li>
+            <li><a>Novos</a></li>
+            <li><a>Antigos</a></li>
         </ul>
     </div>
 </div>
