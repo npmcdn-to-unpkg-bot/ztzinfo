@@ -1,6 +1,7 @@
 angular.module('Blog').filter('splitText', function () {
-    return function (input, end) {
-        console.log(input, end)
-        return input.substring(0, end);
+    return function (input, end, sep) {
+        sep = typeof sep !== 'undefined' ? sep : '';
+        console.log(input, end, sep)
+        return input.substring(0, end) + sep;
     };
 });

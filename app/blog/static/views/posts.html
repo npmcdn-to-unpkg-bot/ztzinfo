@@ -1,6 +1,6 @@
 <h1 class="content-subhead">Últimas Postagens</h1>
 <article class="" data-ng-repeat="post in posts | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
-    <h2 class="text-justify">{{ post.title | splitText:40 }}</h2>
+    <h2 class="text-justify">{{ post.title | splitText:40:'...' }}</h2>
     <p class="text-justify">
         {{ post.body }}
     </p>
