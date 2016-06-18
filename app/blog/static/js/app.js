@@ -4,7 +4,7 @@ var app = angular.module('Blog', ['ngRoute']);
 app.config(function ($routeProvider){
     $routeProvider
     .when('/', {
-        controller: 'MainController',
+        controller: 'BlogCtrl',
         templateUrl: 'static/views/posts.html'
     })
     .when('/sobre', {
@@ -19,4 +19,8 @@ app.config(function ($routeProvider){
         redirectTo: '/'
     });
 
+});
+
+app.value('config', {
+   baseUrl: 'http://jsonplaceholder.typicode.com'
 });

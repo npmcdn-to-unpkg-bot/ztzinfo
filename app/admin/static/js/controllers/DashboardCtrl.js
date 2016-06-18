@@ -1,6 +1,4 @@
-'use strict';
-
-app.controller('DashboardCtrl', function($scope, $state) {
+angular.module('dash').controller('DashboardCtrl', function($scope, $state) {
 
     $scope.$state = $state;
 

@@ -1,8 +1,9 @@
 'use strict';
 
-var app = angular.module('dash', [
+angular.module('dash', [
     'ui.router',
     'ngAnimate',
+    'toastr',
     ])
     .config(function($stateProvider, $urlRouterProvider) {
 
@@ -19,11 +20,16 @@ var app = angular.module('dash', [
             url: '/login',
             parent: 'base',
             templateUrl: 'static/views/login.html',
-            controller: 'LoginCtrl',
+            controller: 'AuthCtrl',
 
             // resolve: {
             //     skipIfLoggedIn: skipIfLoggedIn
             // }
+        })
+        .state('logout', {
+            url: '/logout',
+            template: null,
+            controller: 'LogoutCtrl',
         })
         .state('dashboard', {
             url: '/dashboard',
@@ -48,3 +54,4 @@ var app = angular.module('dash', [
             controller: 'PostCtrl'
         });
     });
+

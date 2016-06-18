@@ -27,7 +27,7 @@ admin = Blueprint(
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+    # response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
     return response
 
 
@@ -56,18 +56,19 @@ def get_auth_token():
 def index():
     return admin.send_static_file('index.html')
 
-@admin.route('/post')
+@admin.route('/post', methods=['GET', 'POST'])
 @auth.login_required
 def new_post():
     print(dir(request))
     print(request.authorization)
     print(request.headers)
+
     return 'New Post'
 
-@admin.route('/posts')
+@admin.route('/posts', methods=['GET', 'POST'])
 @auth.login_required
 def new_posts():
     print(dir(request))
     print(request.authorization)
     print(request.headers)
-    return 'New Post'
+    return 'New Posts'
